@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Island Tech IO | Application Security and DevSecOps Consulting</title>
-    <meta name="description" content="Island Tech IO provides application security, DevSecOps, and veteran technology career guidance from the Greater Denver metro area.">
+    <title>Island Tech IO | AppSec and DevSecOps Consulting</title>
+    <meta name="description" content="Island Tech IO helps engineering and security teams turn AppSec tools, pipelines, and vulnerability workflows into usable security signal.">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -14,26 +14,35 @@
         <span>Island Tech IO</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#method">Method</a>
-        <a href="#outreach">Veteran Outreach</a>
-        <a class="nav-cta" href="mailto:contact@islandtech.io">Start a Conversation</a>
+        <a href="index.html#offers">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="about.html">About</a>
+        <a class="nav-cta" href="mailto:contact@islandtech.io?subject=AppSec%20consulting%20request">Request Review</a>
       </nav>
     </header>
 
     <main>
-      <section class="hero">
+      <section class="hero hero-with-panel">
         <div class="hero-copy">
           <p class="eyebrow">Application Security + DevSecOps Consulting</p>
-          <h1>Security programs that engineering teams can actually use.</h1>
-          <p class="lede">Island Tech IO helps teams improve AppSec tooling, secure delivery pipelines, and developer-facing security workflows without turning engineering into paperwork.</p>
+          <h1>Turn AppSec noise into engineering signal.</h1>
+          <p class="lede">Island Tech IO helps security and engineering teams tune tools, pipelines, reporting, and vulnerability workflows so findings become useful decisions instead of queue noise.</p>
           <div class="hero-actions">
-            <a class="button primary" href="mailto:contact@islandtech.io">Discuss a Project</a>
-            <a class="button secondary" href="#services">View Services</a>
+            <a class="button primary" href="mailto:contact@islandtech.io?subject=AppSec%20review%20request">Request an AppSec Review</a>
+            <a class="button secondary" href="#offers">Explore Services</a>
           </div>
         </div>
-        <div class="hero-media" aria-label="Island Tech IO brand artwork">
+        <div class="hero-media command-panel" aria-label="Island Tech IO consulting focus">
           <img src="assets/island_tech_banner.png" alt="Island Tech IO banner artwork">
+          <div class="panel-overlay">
+            <p class="panel-kicker">Consulting Priorities</p>
+            <ul>
+              <li>Cleaner scan signal</li>
+              <li>Developer-owned fixes</li>
+              <li>CI/CD security guardrails</li>
+              <li>Risk reporting leaders can use</li>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -43,26 +52,58 @@
         <p><strong>Practical</strong> DevSecOps delivery</p>
       </section>
 
-      <section id="services" class="section">
+      <section class="section compact-section">
         <div class="section-heading">
-          <p class="eyebrow">Consulting Focus</p>
-          <h2>Focused help where security meets delivery.</h2>
+          <p class="eyebrow">Best Fit</p>
+          <h2>Built for teams stuck between tools and outcomes.</h2>
         </div>
-        <div class="service-grid">
-          <article class="service-card">
+        <div class="signal-grid">
+          <article>
+            <span>01</span>
+            <h3>Tools are installed, but trust is low.</h3>
+            <p>Findings are noisy, duplicated, or disconnected from how teams actually ship code.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Pipeline checks need better judgment.</h3>
+            <p>Security gates should catch meaningful risk without blocking every release conversation.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Ownership is too blurry.</h3>
+            <p>Vulnerability work needs clear routing, acceptance criteria, and developer-friendly context.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Leadership needs a cleaner risk story.</h3>
+            <p>Dashboards should explain risk movement, delivery impact, and where attention belongs next.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="offers" class="section offers-section">
+        <div class="section-heading">
+          <p class="eyebrow">Consulting Offers</p>
+          <h2>Focused engagements with useful artifacts.</h2>
+        </div>
+        <div class="service-grid offer-grid">
+          <article class="service-card feature-card">
             <span class="card-mark">01</span>
-            <h3>AppSec Consulting</h3>
-            <p>Secure SDLC support, tool evaluation, vulnerability workflow design, threat modeling practices, and developer enablement.</p>
+            <h3>AppSec Program Health Check</h3>
+            <p>Review secure SDLC practices, vulnerability intake, triage rules, developer enablement, and risk reporting.</p>
+            <a class="text-link" href="appsec-consulting.html">View AppSec consulting</a>
           </article>
-          <article class="service-card">
+          <article class="service-card feature-card">
             <span class="card-mark">02</span>
-            <h3>DevSecOps Review</h3>
-            <p>CI/CD security review, source control guardrails, scan signal tuning, release gates, and reporting that makes risk visible.</p>
+            <h3>AppSec Tooling Tune-Up</h3>
+            <p>Improve SAST, SCA, secrets, container, DAST, and platform configuration so security tools create better signal.</p>
+            <a class="text-link" href="appsec-tooling.html">View tooling support</a>
           </article>
-          <article class="service-card">
+          <article class="service-card feature-card">
             <span class="card-mark">03</span>
-            <h3>Security Tooling</h3>
-            <p>Deployment, configuration, integration, upgrade planning, and operational support for application security platforms.</p>
+            <h3>DevSecOps Pipeline Review</h3>
+            <p>Assess CI/CD guardrails, release gates, source control rules, and developer workflows for practical security coverage.</p>
+            <a class="text-link" href="devsecops-consulting.html">View DevSecOps consulting</a>
           </article>
         </div>
       </section>
@@ -70,13 +111,35 @@
       <section id="method" class="split-section">
         <div>
           <p class="eyebrow">Operating Style</p>
-          <h2>Clear findings. Usable workflows. Less security theater.</h2>
+          <h2>Assess the system, tune the signal, leave patterns behind.</h2>
         </div>
         <div class="method-list">
-          <p><strong>Understand the current system.</strong> Tools, pipelines, reports, pain points, and engineering habits come first.</p>
-          <p><strong>Improve the signal.</strong> The goal is not more alerts. The goal is better decisions and cleaner developer action.</p>
-          <p><strong>Leave the team stronger.</strong> Documentation, repeatable patterns, and lightweight enablement are part of the work.</p>
+          <p><strong>Assess.</strong> Map the tools, pipelines, reports, ownership model, and actual engineering pain points.</p>
+          <p><strong>Tune.</strong> Reduce false positives, clarify severity rules, and align security checks to release reality.</p>
+          <p><strong>Enable.</strong> Deliver playbooks, lightweight documentation, and patterns your team can keep using.</p>
         </div>
+      </section>
+
+      <section class="section outcomes-section">
+        <div class="section-heading">
+          <p class="eyebrow">Outcomes</p>
+          <h2>What better AppSec should feel like.</h2>
+        </div>
+        <div class="outcome-list">
+          <p><strong>Developers know what to fix first.</strong> Findings include context, ownership, and realistic remediation paths.</p>
+          <p><strong>Security can explain risk movement.</strong> Reporting connects tool data to decisions, trends, and business impact.</p>
+          <p><strong>Pipelines enforce the right things.</strong> Controls are deliberate, documented, and understandable when they block a build.</p>
+          <p><strong>Tools earn trust.</strong> Platform configuration supports engineering speed instead of turning every scan into background static.</p>
+        </div>
+      </section>
+
+      <section class="section insight-band">
+        <div>
+          <p class="eyebrow">Insights</p>
+          <h2>Field notes for practical AppSec.</h2>
+          <p>Short notes on tool tuning, DevSecOps adoption, vulnerability operations, and veteran technology career guidance.</p>
+        </div>
+        <a class="button secondary light-button" href="insights.html">Read Insights</a>
       </section>
 
       <section id="outreach" class="outreach">
@@ -85,15 +148,7 @@
           <h2>Technology career guidance for veterans.</h2>
           <p>Island Tech IO includes a veteran outreach lane focused on IT transition guidance, cybersecurity career paths, resume feedback, interview preparation, and mentorship.</p>
         </div>
-        <a class="button primary" href="mailto:veterans@islandtech.io">Ask About Guidance</a>
-      </section>
-
-      <section class="founder">
-        <div class="founder-panel">
-          <p class="eyebrow">Founder</p>
-          <h2>Tremaine Island</h2>
-          <p>Application security engineer, DevSecOps practitioner, and founder of Island Tech Solutions LLC. Island Tech IO is the consulting DBA for security, delivery, and veteran technology career support.</p>
-        </div>
+        <a class="button primary" href="mailto:veterans@islandtech.io?subject=Veteran%20technology%20guidance">Ask About Guidance</a>
       </section>
     </main>
 
@@ -103,4 +158,3 @@
     </footer>
   </body>
 </html>
-

@@ -28,7 +28,9 @@ for (const root of roots) {
     for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
       const ref = match[1];
       if (/^(https?:|mailto:|tel:|#)/.test(ref)) continue;
-      const local = path.join(root, ref);
+      const localRef = ref.split('#')[0].split('?')[0];
+      if (!localRef) continue;
+      const local = path.join(root, localRef);
       if (!fs.existsSync(local)) {
         console.error(`Broken local reference in ${path.join(root, file)}: ${ref}`);
         ok = false;
