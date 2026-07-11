@@ -1,3 +1,83 @@
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-sans-400.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-sans-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-sans-600.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-sans-700.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-serif-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-serif-600.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Serif";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-serif-700.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-mono-500.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-mono-600.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("assets/fonts/ibm-plex-mono-700.ttf") format("truetype");
+}
+
 :root {
   --ink: #172423;
   --muted: #5d6b67;
@@ -11,6 +91,9 @@
   --coral: #b4573d;
   --line: rgba(23, 36, 35, 0.16);
   --shadow: 0 28px 70px rgba(18, 63, 83, 0.14);
+  --font-body: "IBM Plex Sans", "Aptos", "Segoe UI", sans-serif;
+  --font-heading: "IBM Plex Serif", "Iowan Old Style", "Georgia", serif;
+  --font-mono: "IBM Plex Mono", "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
 }
 
 * {
@@ -28,8 +111,9 @@ body {
     linear-gradient(120deg, rgba(8, 117, 121, 0.08), transparent 32rem),
     linear-gradient(135deg, var(--paper) 0%, var(--mist) 58%, #fbf7ed 100%);
   color: var(--ink);
-  font-family: "Aptos", "Segoe UI", sans-serif;
+  font-family: var(--font-body);
   letter-spacing: 0;
+  text-rendering: optimizeLegibility;
 }
 
 body::before {
@@ -81,7 +165,9 @@ nav {
   align-items: center;
   gap: 1.05rem;
   color: var(--muted);
+  font-family: var(--font-mono);
   font-size: 0.94rem;
+  font-weight: 600;
   white-space: nowrap;
 }
 
@@ -139,9 +225,10 @@ nav a[aria-current="true"]::after {
 .eyebrow {
   margin: 0 0 0.85rem;
   color: var(--reef);
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  font-weight: 950;
-  letter-spacing: 0.14em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -155,7 +242,8 @@ p {
 h1,
 h2,
 h3 {
-  font-family: "Iowan Old Style", "Georgia", serif;
+  font-family: var(--font-heading);
+  font-weight: 600;
   line-height: 0.98;
 }
 
@@ -229,9 +317,10 @@ h3 {
   min-height: 2.6rem;
   margin-top: clamp(1.4rem, 3vw, 2.2rem);
   color: var(--deep);
+  font-family: var(--font-mono);
   font-size: 0.84rem;
-  font-weight: 950;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -397,6 +486,7 @@ h3 {
   display: inline-block;
   margin-bottom: 3.5rem;
   color: var(--signal);
+  font-family: var(--font-mono);
   font-weight: 950;
 }
 
@@ -544,12 +634,13 @@ h3 {
 
 .process-node span {
   color: var(--signal);
+  font-family: var(--font-mono);
   font-weight: 950;
 }
 
 .process-node strong {
   color: var(--deep);
-  font-family: "Iowan Old Style", "Georgia", serif;
+  font-family: var(--font-heading);
   font-size: 1.05rem;
   line-height: 1.05;
 }
@@ -651,6 +742,7 @@ h3 {
 
 .engagement-timeline span {
   color: var(--signal);
+  font-family: var(--font-mono);
   font-weight: 950;
 }
 
@@ -923,7 +1015,7 @@ h3 {
 
 .contact-panel strong {
   color: var(--deep);
-  font-family: "Iowan Old Style", "Georgia", serif;
+  font-family: var(--font-heading);
   font-size: 1.3rem;
   line-height: 1.05;
 }
@@ -1117,8 +1209,9 @@ h3 {
   align-items: center;
   flex-wrap: wrap;
   color: var(--muted);
+  font-family: var(--font-mono);
   font-size: 0.94rem;
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .post-meta span::before {
@@ -1130,8 +1223,8 @@ h3 {
 .post-body {
   max-width: 48rem;
   color: var(--ink);
-  font-size: 1.08rem;
-  line-height: 1.75;
+  font-size: clamp(1.06rem, 1.2vw, 1.16rem);
+  line-height: 1.78;
 }
 
 .post-body h2,
@@ -1151,6 +1244,10 @@ h3 {
   color: var(--muted);
 }
 
+.post-body p {
+  margin-bottom: 1.25rem;
+}
+
 .post-body ul,
 .post-body ol {
   display: grid;
@@ -1161,6 +1258,8 @@ h3 {
 .post-body code {
   padding: 0.08rem 0.28rem;
   color: var(--deep);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
   background: rgba(217, 164, 65, 0.16);
   border-radius: 4px;
 }
@@ -1222,7 +1321,7 @@ footer {
 
 .back-to-top {
   position: fixed;
-  right: clamp(1rem, 3vw, 2rem);
+  left: 50%;
   bottom: clamp(1rem, 3vw, 2rem);
   z-index: 12;
   min-width: 7.5rem;
@@ -1230,6 +1329,7 @@ footer {
   padding: 0.65rem 0.8rem;
   color: #fffdf8;
   font: inherit;
+  font-family: var(--font-mono);
   font-weight: 950;
   letter-spacing: 0;
   text-align: center;
@@ -1240,7 +1340,7 @@ footer {
   border-radius: 999px;
   box-shadow: 0 18px 45px rgba(18, 63, 83, 0.28);
   opacity: 0;
-  transform: translateY(0.75rem);
+  transform: translate(-50%, 0.75rem);
   transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
 }
 
@@ -1251,7 +1351,7 @@ footer {
 .back-to-top.is-visible {
   pointer-events: auto;
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(-50%, 0);
 }
 
 @media (max-width: 1100px) {
