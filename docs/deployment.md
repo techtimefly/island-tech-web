@@ -57,6 +57,10 @@ REQUIRE_WEB3FORMS_KEY=1 npm run build:islandtech
 WEB3FORMS_ACCESS_KEY=test_key REQUIRE_WEB3FORMS_KEY=1 npm run build:islandtech
 ```
 
+## Contact Form Verification
+
+Web3Forms delivery to the Proton/SimpleLogin-backed Island Tech inbox has been verified. Homelab `.lan` deployments intentionally keep the placeholder access key and use email fallback behavior.
+
 ## Mobile Meridian Redirects
 
 Production DNS:
