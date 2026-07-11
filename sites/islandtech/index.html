@@ -14,8 +14,10 @@
         <span>Island Tech IO</span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="index.html#offers">Services</a>
-        <a href="insights.html">Insights</a>
+        <a href="#offers" data-section-link="offers">Services</a>
+        <a href="#method" data-section-link="method">Method</a>
+        <a href="#outcomes" data-section-link="outcomes">Outcomes</a>
+        <a href="#outreach" data-section-link="outreach">Outreach</a>
         <a href="about.html">About</a>
         <a class="nav-cta" href="mailto:contact@islandtech.io?subject=AppSec%20consulting%20request">Request Review</a>
       </nav>
@@ -52,7 +54,7 @@
         <p><strong>Practical</strong> DevSecOps delivery</p>
       </section>
 
-      <section class="section compact-section">
+      <section id="fit" class="section compact-section" data-nav-section>
         <div class="section-heading">
           <p class="eyebrow">Best Fit</p>
           <h2>Built for teams stuck between tools and outcomes.</h2>
@@ -81,7 +83,7 @@
         </div>
       </section>
 
-      <section id="offers" class="section offers-section">
+      <section id="offers" class="section offers-section" data-nav-section>
         <div class="section-heading">
           <p class="eyebrow">Consulting Offers</p>
           <h2>Focused engagements with useful artifacts.</h2>
@@ -108,7 +110,7 @@
         </div>
       </section>
 
-      <section id="method" class="split-section">
+      <section id="method" class="split-section" data-nav-section>
         <div>
           <p class="eyebrow">Operating Style</p>
           <h2>Assess the system, tune the signal, leave patterns behind.</h2>
@@ -120,7 +122,7 @@
         </div>
       </section>
 
-      <section class="section outcomes-section">
+      <section id="outcomes" class="section outcomes-section" data-nav-section>
         <div class="section-heading">
           <p class="eyebrow">Outcomes</p>
           <h2>What better AppSec should feel like.</h2>
@@ -133,7 +135,7 @@
         </div>
       </section>
 
-      <section class="section insight-band">
+      <section id="insights" class="section insight-band" data-nav-section>
         <div>
           <p class="eyebrow">Insights</p>
           <h2>Field notes for practical AppSec.</h2>
@@ -142,7 +144,7 @@
         <a class="button secondary light-button" href="insights.html">Read Insights</a>
       </section>
 
-      <section id="outreach" class="outreach">
+      <section id="outreach" class="outreach" data-nav-section>
         <div>
           <p class="eyebrow">Veteran Outreach</p>
           <h2>Technology career guidance for veterans.</h2>
@@ -152,9 +154,12 @@
       </section>
     </main>
 
+    <button class="back-to-top" type="button" aria-label="Back to top">Top</button>
+
     <footer>
       <p>Island Tech IO is a registered DBA of Island Tech Solutions LLC, a Colorado LLC formed in 2022.</p>
       <p><a href="mailto:contact@islandtech.io">contact@islandtech.io</a></p>
     </footer>
+    <script src="site.js" defer></script>
   </body>
 </html>
