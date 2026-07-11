@@ -484,6 +484,69 @@ h3 {
   max-width: 48rem;
 }
 
+.contact-section {
+  display: grid;
+  grid-template-columns: minmax(16rem, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+  background:
+    linear-gradient(135deg, rgba(217, 164, 65, 0.18), transparent 52%),
+    rgba(255, 253, 250, 0.54);
+  border-top: 1px solid var(--line);
+}
+
+.contact-copy {
+  position: sticky;
+  top: 6.5rem;
+}
+
+.contact-copy p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.contact-panel {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-panel a {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.2rem 1rem;
+  padding: 1rem;
+  color: var(--ink);
+  text-decoration: none;
+  background: rgba(255, 253, 250, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(18, 63, 83, 0.08);
+}
+
+.contact-panel a:hover {
+  border-color: rgba(8, 117, 121, 0.42);
+  transform: translateY(-1px);
+}
+
+.contact-panel span {
+  grid-row: span 2;
+  color: var(--signal);
+  font-weight: 950;
+}
+
+.contact-panel strong {
+  color: var(--deep);
+  font-family: "Iowan Old Style", "Georgia", serif;
+  font-size: 1.3rem;
+  line-height: 1.05;
+}
+
+.contact-panel small {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
 .founder-panel {
   max-width: 58rem;
   padding-top: 2rem;
@@ -676,8 +739,13 @@ footer {
   .hero,
   .split-section,
   .detail-layout,
-  .founder-story {
+  .founder-story,
+  .contact-section {
     grid-template-columns: 1fr;
+  }
+
+  .contact-copy {
+    position: static;
   }
 
   .portrait-panel {
