@@ -66,4 +66,88 @@
 
     sections.forEach((section) => observer.observe(section));
   }
+
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    const status = contactForm.querySelector('.form-status');
+    const submit = contactForm.querySelector('button[type="submit"]');
+    const keyField = contactForm.querySelector('input[name="access_key"]');
+    const serviceField = contactForm.querySelector('select[name="service"]');
+    const subjectField = contactForm.querySelector('input[name="subject"]');
+
+    const setStatus = (message, tone = '') => {
+      if (!status) return;
+      status.textContent = message;
+      status.dataset.tone = tone;
+    };
+
+    const composeMailto = (formData) => {
+      const service = formData.get('service') || 'Website inquiry';
+      const subject = `[Island Tech IO] ${service}`;
+      const body = [
+        `Name: ${formData.get('name') || ''}`,
+        `Email: ${formData.get('email') || ''}`,
+        `Organization: ${formData.get('organization') || ''}`,
+        `Service interest: ${service}`,
+        '',
+        'Message:',
+        formData.get('message') || '',
+      ].join('\n');
+
+      return `mailto:contact@islandtech.io?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    };
+
+    if (serviceField && subjectField) {
+      serviceField.addEventListener('change', () => {
+        subjectField.value = `[Island Tech IO] ${serviceField.value || 'Website inquiry'}`;
+      });
+    }
+
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      if (!contactForm.reportValidity()) return;
+
+      const formData = new FormData(contactForm);
+      const accessKey = (keyField?.value || '').trim();
+      const endpoint = contactForm.dataset.web3formsEndpoint;
+      const hasLiveKey = accessKey && accessKey !== 'YOUR_WEB3FORMS_ACCESS_KEY';
+
+      if (!hasLiveKey) {
+        setStatus('The secure form endpoint is not configured yet. Opening your email client instead.', 'warning');
+        window.location.href = composeMailto(formData);
+        return;
+      }
+
+      if (submit) {
+        submit.disabled = true;
+        submit.textContent = 'Sending...';
+      }
+      setStatus('Sending your inquiry...', 'pending');
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          body: formData,
+          headers: { Accept: 'application/json' },
+        });
+
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || 'Form submission failed');
+        }
+
+        setStatus('Thanks, your inquiry was sent.', 'success');
+        contactForm.reset();
+        window.location.href = contactForm.dataset.thanksUrl || 'thanks.html';
+      } catch (error) {
+        setStatus('I could not send the form right now. Please email contact@islandtech.io directly.', 'error');
+      } finally {
+        if (submit) {
+          submit.disabled = false;
+          submit.textContent = 'Send Inquiry';
+        }
+      }
+    });
+  }
 })();

@@ -23,6 +23,40 @@ mobilemeridianco.com -> mobilemeridian-pages
 
 If using one source repository, configure GitHub Actions to publish each folder to its own deployment target or split the built/static folders into separate Pages repositories.
 
+## Island Tech GitHub Pages Deployment
+
+The Island Tech Pages workflow is tracked at:
+
+```text
+.github/workflows/deploy-islandtech-pages.yml
+```
+
+Before enabling the public deployment, configure GitHub Pages for the repository to use **GitHub Actions** as the publishing source.
+
+Add this repository secret in GitHub:
+
+```text
+WEB3FORMS_ACCESS_KEY
+```
+
+The source HTML intentionally keeps this placeholder:
+
+```text
+YOUR_WEB3FORMS_ACCESS_KEY
+```
+
+During GitHub Actions deployment, `npm run build:islandtech` copies `sites/islandtech` to `dist/islandtech` and injects `WEB3FORMS_ACCESS_KEY` into the deploy artifact only. The workflow sets `REQUIRE_WEB3FORMS_KEY=1`, so public deployment fails if the secret is missing.
+
+Local and homelab builds should not set `WEB3FORMS_ACCESS_KEY`. In that mode, the placeholder remains and the contact form gracefully falls back to opening a prefilled email.
+
+Local build checks:
+
+```bash
+npm run build:islandtech
+REQUIRE_WEB3FORMS_KEY=1 npm run build:islandtech
+WEB3FORMS_ACCESS_KEY=test_key REQUIRE_WEB3FORMS_KEY=1 npm run build:islandtech
+```
+
 ## Mobile Meridian Redirects
 
 Production DNS:

@@ -160,27 +160,80 @@
           <h2>Bring the AppSec problem you are trying to make practical.</h2>
           <p>For consulting work, send a short note with the kind of help you need, the tools or pipelines involved, and what a useful outcome would look like. I will use that context to suggest a focused next step.</p>
         </div>
-        <div class="contact-panel" aria-label="Contact options">
-          <a href="mailto:contact@islandtech.io?subject=AppSec%20Program%20Health%20Check">
-            <span>01</span>
-            <strong>AppSec Program Health Check</strong>
-            <small>Secure SDLC, vulnerability workflow, triage, reporting, and developer enablement.</small>
-          </a>
-          <a href="mailto:contact@islandtech.io?subject=AppSec%20Tooling%20Tune-Up">
-            <span>02</span>
-            <strong>Tooling Tune-Up</strong>
-            <small>SAST, SCA, DAST, secrets, container scanning, policies, and scan signal quality.</small>
-          </a>
-          <a href="mailto:contact@islandtech.io?subject=DevSecOps%20Pipeline%20Review">
-            <span>03</span>
-            <strong>DevSecOps Pipeline Review</strong>
-            <small>CI/CD guardrails, release gates, developer feedback loops, and security automation.</small>
-          </a>
-          <a href="mailto:veterans@islandtech.io?subject=Veteran%20technology%20guidance">
-            <span>04</span>
-            <strong>Veteran Technology Guidance</strong>
-            <small>Career transition guidance, cybersecurity pathing, resume framing, and interview prep.</small>
-          </a>
+        <div class="contact-workspace">
+          <form class="contact-form" action="mailto:contact@islandtech.io" method="POST" enctype="text/plain" data-web3forms-endpoint="https://api.web3forms.com/submit" data-thanks-url="thanks.html">
+            <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+            <input type="hidden" name="subject" value="[Island Tech IO] Website inquiry">
+            <input type="hidden" name="from_name" value="Island Tech IO Website">
+            <input type="checkbox" name="botcheck" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <div class="form-grid">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" required>
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" required>
+              </label>
+            </div>
+
+            <label>
+              <span>Organization</span>
+              <input type="text" name="organization" autocomplete="organization" placeholder="Company, team, or solo project">
+            </label>
+
+            <label>
+              <span>Service interest</span>
+              <select name="service" required>
+                <option value="">Select one</option>
+                <option>AppSec Program Health Check</option>
+                <option>AppSec Tooling Tune-Up</option>
+                <option>DevSecOps Pipeline Review</option>
+                <option>Veteran Technology Guidance</option>
+                <option>General Question</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="6" required placeholder="What are you trying to improve, what tools or pipelines are involved, and what would a useful outcome look like?"></textarea>
+            </label>
+
+            <label class="acknowledgement">
+              <input type="checkbox" name="safe_content_acknowledgement" value="acknowledged" required>
+              <span>Please do not include passwords, secrets, source code, regulated data, confidential vulnerability details, or protected personal information in this form.</span>
+            </label>
+
+            <div class="form-actions">
+              <button class="button primary" type="submit">Send Inquiry</button>
+              <a class="text-link" href="mailto:contact@islandtech.io?subject=Island%20Tech%20IO%20Website%20Inquiry">Email directly</a>
+            </div>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="contact-panel" aria-label="Contact options">
+            <a href="mailto:contact@islandtech.io?subject=AppSec%20Program%20Health%20Check">
+              <span>01</span>
+              <strong>AppSec Program Health Check</strong>
+              <small>Secure SDLC, vulnerability workflow, triage, reporting, and developer enablement.</small>
+            </a>
+            <a href="mailto:contact@islandtech.io?subject=AppSec%20Tooling%20Tune-Up">
+              <span>02</span>
+              <strong>Tooling Tune-Up</strong>
+              <small>SAST, SCA, DAST, secrets, container scanning, policies, and scan signal quality.</small>
+            </a>
+            <a href="mailto:contact@islandtech.io?subject=DevSecOps%20Pipeline%20Review">
+              <span>03</span>
+              <strong>DevSecOps Pipeline Review</strong>
+              <small>CI/CD guardrails, release gates, developer feedback loops, and security automation.</small>
+            </a>
+            <a href="mailto:veterans@islandtech.io?subject=Veteran%20technology%20guidance">
+              <span>04</span>
+              <strong>Veteran Technology Guidance</strong>
+              <small>Career transition guidance, cybersecurity pathing, resume framing, and interview prep.</small>
+            </a>
+          </div>
         </div>
       </section>
     </main>

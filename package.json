@@ -5,6 +5,7 @@
   "scripts": {
     "serve:islandtech": "npx --yes serve sites/islandtech -l 4173",
     "serve:mobilemeridian": "npx --yes serve sites/mobilemeridian -l 4174",
-    "check": "node scripts/check-static-sites.js"
+    "check": "node scripts/check-static-sites.js",
+    "build:islandtech": "node scripts/build-islandtech.js"
   }
 }
