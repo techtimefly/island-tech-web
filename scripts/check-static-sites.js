@@ -22,7 +22,8 @@ for (const root of roots) {
     }
   }
 
-  const htmlFiles = fs.readdirSync(root).filter((file) => file.endsWith('.html'));
+  const htmlFiles = fs.readdirSync(root, { recursive: true })
+    .filter((file) => file.endsWith('.html'));
   for (const file of htmlFiles) {
     const html = fs.readFileSync(path.join(root, file), 'utf8');
     for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
@@ -30,7 +31,12 @@ for (const root of roots) {
       if (/^(https?:|mailto:|tel:|#)/.test(ref)) continue;
       const localRef = ref.split('#')[0].split('?')[0];
       if (!localRef) continue;
-      const local = path.join(root, localRef);
+      const local = path.resolve(root, path.dirname(file), localRef);
+      if (!local.startsWith(root)) {
+        console.error(`Local reference escapes site root in ${path.join(root, file)}: ${ref}`);
+        ok = false;
+        continue;
+      }
       if (!fs.existsSync(local)) {
         console.error(`Broken local reference in ${path.join(root, file)}: ${ref}`);
         ok = false;
@@ -41,4 +47,3 @@ for (const root of roots) {
 
 if (!ok) process.exit(1);
 console.log('Static site checks passed.');
-

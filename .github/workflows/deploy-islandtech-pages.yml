@@ -5,7 +5,9 @@ on:
     branches:
       - main
     paths:
+      - 'content/islandtech/posts/**'
       - 'sites/islandtech/**'
+      - 'scripts/build-posts.js'
       - 'scripts/build-islandtech.js'
       - 'scripts/check-static-sites.js'
       - 'package.json'
@@ -38,7 +40,7 @@ jobs:
         env:
           WEB3FORMS_ACCESS_KEY: ${{ secrets.WEB3FORMS_ACCESS_KEY }}
           REQUIRE_WEB3FORMS_KEY: '1'
-        run: npm run build:islandtech
+        run: npm run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
