@@ -193,8 +193,7 @@ const pageShell = ({ title, description, body, prefix = '' }) => `<!doctype html
       </a>
       <nav aria-label="Main navigation">
         <a href="${prefix}index.html#offers">Services</a>
-        <a href="${prefix}index.html#method">Method</a>
-        <a href="${prefix}index.html#outcomes">Outcomes</a>
+        <a href="${prefix}engagements.html">Engagements</a>
         <a href="${prefix}insights.html">Insights</a>
         <a href="${prefix}about.html">About</a>
         <a class="nav-cta" href="${prefix}index.html#contact">Contact</a>
