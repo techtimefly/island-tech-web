@@ -2,6 +2,27 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const header = document.querySelector('.site-header');
   const backToTop = document.querySelector('.back-to-top');
+  const themeToggle = document.querySelector('[data-theme-toggle]');
+
+  if (themeToggle) {
+    const applyThemeLabel = () => {
+      const current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      themeToggle.setAttribute('aria-label', `Switch to ${current === 'dark' ? 'light' : 'dark'} mode`);
+      themeToggle.setAttribute('title', `Switch to ${current === 'dark' ? 'light' : 'dark'} mode`);
+      const icon = themeToggle.querySelector('.theme-toggle-icon');
+      if (icon) icon.textContent = current === 'dark' ? '☼' : '◐';
+    };
+
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem('islandtech-theme', next);
+      applyThemeLabel();
+    });
+
+    applyThemeLabel();
+  }
 
   const headerOffset = () => (header ? header.getBoundingClientRect().height + 18 : 18);
 
