@@ -89,11 +89,32 @@
   --night: #102d3b;
   --signal: #d9a441;
   --coral: #b4573d;
+  --action: #123f53;
+  --action-ink: #fffdf8;
   --line: rgba(23, 36, 35, 0.16);
   --shadow: 0 28px 70px rgba(18, 63, 83, 0.14);
   --font-body: "IBM Plex Sans", "Aptos", "Segoe UI", sans-serif;
   --font-heading: "IBM Plex Serif", "Iowan Old Style", "Georgia", serif;
   --font-mono: "IBM Plex Mono", "Cascadia Mono", "SFMono-Regular", Consolas, monospace;
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --ink: #eef7f2;
+  --muted: #adc1bd;
+  --paper: #0d181d;
+  --mist: #12272f;
+  --panel: #142b34;
+  --reef: #54c5bf;
+  --deep: #d7f0e8;
+  --night: #091217;
+  --signal: #e5b85b;
+  --coral: #e08c72;
+  --action: #1b5967;
+  --action-ink: #eef7f2;
+  --line: rgba(238, 247, 242, 0.16);
+  --shadow: 0 28px 70px rgba(0, 0, 0, 0.32);
+  color-scheme: dark;
 }
 
 * {
@@ -114,6 +135,12 @@ body {
   font-family: var(--font-body);
   letter-spacing: 0;
   text-rendering: optimizeLegibility;
+}
+
+:root[data-theme="dark"] body {
+  background:
+    linear-gradient(120deg, rgba(84, 197, 191, 0.1), transparent 32rem),
+    linear-gradient(135deg, #0d181d 0%, #10252d 58%, #091217 100%);
 }
 
 body::before {
@@ -145,6 +172,10 @@ a {
   background: rgba(246, 244, 235, 0.9);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(16px);
+}
+
+:root[data-theme="dark"] .site-header {
+  background: rgba(13, 24, 29, 0.9);
 }
 
 .brand {
@@ -194,6 +225,34 @@ nav a[aria-current="true"]::after {
   height: 2px;
   content: "";
   background: var(--signal);
+}
+
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 2.55rem;
+  height: 2.55rem;
+  color: var(--deep);
+  font: inherit;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  cursor: pointer;
+  background: rgba(255, 253, 250, 0.62);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: #fffdf8;
+  background: var(--reef);
+  outline: none;
+}
+
+:root[data-theme="dark"] .theme-toggle {
+  color: var(--deep);
+  background: rgba(238, 247, 242, 0.08);
 }
 
 .nav-cta {
@@ -294,14 +353,23 @@ h3 {
 }
 
 .button.primary {
-  background: var(--deep);
-  color: #fffdf8;
-  border-color: var(--deep);
+  background: var(--action);
+  color: var(--action-ink);
+  border-color: var(--action);
 }
 
 .button.secondary {
   background: rgba(255, 253, 250, 0.72);
   color: var(--deep);
+}
+
+:root[data-theme="dark"] .button.secondary {
+  background: rgba(238, 247, 242, 0.08);
+  border-color: rgba(238, 247, 242, 0.2);
+}
+
+:root[data-theme="dark"] .button.primary {
+  border-color: rgba(84, 197, 191, 0.42);
 }
 
 .button:hover {
@@ -316,7 +384,7 @@ h3 {
   width: fit-content;
   min-height: 2.6rem;
   margin-top: clamp(1.4rem, 3vw, 2.2rem);
-  color: var(--deep);
+  color: var(--action);
   font-family: var(--font-mono);
   font-size: 0.84rem;
   font-weight: 700;
@@ -330,9 +398,9 @@ h3 {
   place-items: center;
   width: 1.8rem;
   height: 1.8rem;
-  color: #fffdf8;
+  color: var(--action-ink);
   content: "↓";
-  background: var(--deep);
+  background: var(--action);
   border-radius: 999px;
   box-shadow: 0 10px 24px rgba(18, 63, 83, 0.18);
 }
@@ -347,8 +415,13 @@ h3 {
 }
 
 .light-continue::after {
-  color: var(--deep);
+  color: var(--action);
   background: #fffdf8;
+}
+
+:root[data-theme="dark"] .light-continue::after {
+  color: var(--night);
+  background: var(--ink);
 }
 
 .light-button {
@@ -364,6 +437,24 @@ h3 {
   overflow: hidden;
   box-shadow: var(--shadow);
   transform: rotate(1deg);
+}
+
+:root[data-theme="dark"] .hero-media,
+:root[data-theme="dark"] .service-card,
+:root[data-theme="dark"] .signal-grid article,
+:root[data-theme="dark"] .detail-stack article,
+:root[data-theme="dark"] .article-index article,
+:root[data-theme="dark"] .posts-list article,
+:root[data-theme="dark"] .company-grid article,
+:root[data-theme="dark"] .deliverable-grid p,
+:root[data-theme="dark"] .contact-form,
+:root[data-theme="dark"] .contact-panel a,
+:root[data-theme="dark"] .process-detail,
+:root[data-theme="dark"] .independence-note article,
+:root[data-theme="dark"] .engagement-timeline article,
+:root[data-theme="dark"] .outreach,
+:root[data-theme="dark"] .portrait-panel {
+  background: rgba(20, 43, 52, 0.86);
 }
 
 .hero-media img {
@@ -415,6 +506,10 @@ h3 {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: rgba(255, 253, 250, 0.76);
+}
+
+:root[data-theme="dark"] .cred-strip {
+  background: rgba(20, 43, 52, 0.72);
 }
 
 .cred-strip p {
@@ -501,6 +596,14 @@ h3 {
 .outcome-list p {
   color: var(--muted);
   line-height: 1.65;
+}
+
+:root[data-theme="dark"] .outcome-list p,
+:root[data-theme="dark"] .outcomes-section,
+:root[data-theme="dark"] .contact-section,
+:root[data-theme="dark"] .engagement-section,
+:root[data-theme="dark"] .engagement-page-section {
+  background: rgba(20, 43, 52, 0.52);
 }
 
 .service-grid {
@@ -602,6 +705,10 @@ h3 {
   background: rgba(18, 63, 83, 0.14);
 }
 
+:root[data-theme="dark"] .process-track::before {
+  background: rgba(238, 247, 242, 0.14);
+}
+
 .process-track::after {
   width: 34%;
   background: linear-gradient(90deg, transparent, var(--signal), transparent);
@@ -625,11 +732,23 @@ h3 {
   box-shadow: 0 14px 34px rgba(18, 63, 83, 0.08);
 }
 
+:root[data-theme="dark"] .process-node {
+  color: var(--muted);
+  background: rgba(20, 43, 52, 0.94);
+  border-color: rgba(238, 247, 242, 0.18);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+}
+
 .process-node:hover,
 .process-node:focus-visible {
   border-color: rgba(8, 117, 121, 0.45);
   outline: none;
   transform: translateY(-2px);
+}
+
+:root[data-theme="dark"] .process-node:hover,
+:root[data-theme="dark"] .process-node:focus-visible {
+  border-color: rgba(84, 197, 191, 0.58);
 }
 
 .process-node span {
@@ -645,17 +764,34 @@ h3 {
   line-height: 1.05;
 }
 
+:root[data-theme="dark"] .process-node strong {
+  color: var(--ink);
+}
+
 .process-node.is-active {
-  color: #fffdf8;
+  color: var(--action-ink);
   background:
     linear-gradient(135deg, rgba(8, 117, 121, 0.42), transparent 62%),
-    var(--deep);
+    var(--action);
   border-color: rgba(255, 253, 248, 0.3);
   box-shadow: 0 22px 54px rgba(18, 63, 83, 0.22);
 }
 
+:root[data-theme="dark"] .process-node.is-active {
+  color: var(--ink);
+  background:
+    linear-gradient(135deg, rgba(84, 197, 191, 0.24), transparent 62%),
+    #153847;
+  border-color: rgba(84, 197, 191, 0.5);
+  box-shadow: 0 24px 56px rgba(0, 0, 0, 0.28);
+}
+
 .process-node.is-active strong {
-  color: #fffdf8;
+  color: var(--action-ink);
+}
+
+:root[data-theme="dark"] .process-node.is-active strong {
+  color: var(--ink);
 }
 
 .process-detail {
@@ -914,6 +1050,13 @@ h3 {
   border-radius: 6px;
 }
 
+:root[data-theme="dark"] .contact-form input,
+:root[data-theme="dark"] .contact-form select,
+:root[data-theme="dark"] .contact-form textarea {
+  background: #0d181d;
+  border-color: rgba(238, 247, 242, 0.18);
+}
+
 .contact-form textarea {
   min-height: 10rem;
   resize: vertical;
@@ -941,6 +1084,11 @@ h3 {
   background: rgba(217, 164, 65, 0.12);
   border: 1px solid rgba(217, 164, 65, 0.35);
   border-radius: 6px;
+}
+
+:root[data-theme="dark"] .acknowledgement {
+  background: rgba(229, 184, 91, 0.1);
+  border-color: rgba(229, 184, 91, 0.28);
 }
 
 .acknowledgement input {
@@ -1327,7 +1475,7 @@ footer {
   min-width: 7.5rem;
   min-height: 3.25rem;
   padding: 0.65rem 0.8rem;
-  color: #fffdf8;
+  color: var(--action-ink);
   font: inherit;
   font-family: var(--font-mono);
   font-weight: 950;
@@ -1335,13 +1483,18 @@ footer {
   text-align: center;
   cursor: pointer;
   pointer-events: none;
-  background: var(--deep);
+  background: var(--action);
   border: 1px solid rgba(255, 253, 248, 0.2);
   border-radius: 999px;
   box-shadow: 0 18px 45px rgba(18, 63, 83, 0.28);
   opacity: 0;
   transform: translate(-50%, 0.75rem);
   transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+}
+
+:root[data-theme="dark"] .back-to-top {
+  border-color: rgba(84, 197, 191, 0.38);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.34);
 }
 
 .back-to-top:hover {

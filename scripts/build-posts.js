@@ -184,6 +184,7 @@ const pageShell = ({ title, description, body, prefix = '' }) => `<!doctype html
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}">
     <link rel="stylesheet" href="${prefix}styles.css">
+    <script>try{const t=localStorage.getItem("islandtech-theme");const d=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches;document.documentElement.dataset.theme=t|| (d?"dark":"light");}catch(e){}</script>
   </head>
   <body>
     <header class="site-header">
@@ -198,6 +199,9 @@ const pageShell = ({ title, description, body, prefix = '' }) => `<!doctype html
         <a href="${prefix}about.html">About</a>
         <a class="nav-cta" href="${prefix}index.html#contact">Contact</a>
       </nav>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme" title="Toggle color theme" data-theme-toggle>
+        <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+      </button>
     </header>
 
     <main>
