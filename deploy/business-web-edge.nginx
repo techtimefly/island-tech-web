@@ -1,0 +1,95 @@
+server {
+  listen 443 ssl http2;
+  server_name islandtech.lan;
+
+  ssl_certificate     /etc/nginx/certs/lan.crt;
+  ssl_certificate_key /etc/nginx/certs/lan.key;
+
+  location / {
+    proxy_pass http://10.0.10.145;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-Host $host;
+  }
+}
+
+server {
+  listen 80;
+  server_name islandtech.lan;
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 443 ssl http2;
+  server_name mobilemeridian.lan mobilemeridianco.lan;
+
+  ssl_certificate     /etc/nginx/certs/lan.crt;
+  ssl_certificate_key /etc/nginx/certs/lan.key;
+
+  location / {
+    proxy_pass http://10.0.10.145;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto https;
+    proxy_set_header X-Forwarded-Host $host;
+  }
+}
+
+server {
+  listen 80;
+  server_name mobilemeridian.lan mobilemeridianco.lan;
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 443 ssl http2;
+  server_name notary.mobilemeridian.lan;
+
+  ssl_certificate     /etc/nginx/certs/lan.crt;
+  ssl_certificate_key /etc/nginx/certs/lan.key;
+
+  return 301 https://mobilemeridian.lan/notary.html;
+}
+
+server {
+  listen 80;
+  server_name notary.mobilemeridian.lan;
+  return 301 https://mobilemeridian.lan/notary.html;
+}
+
+server {
+  listen 443 ssl http2;
+  server_name weddings.mobilemeridian.lan;
+
+  ssl_certificate     /etc/nginx/certs/lan.crt;
+  ssl_certificate_key /etc/nginx/certs/lan.key;
+
+  return 301 https://mobilemeridian.lan/wedding-officiant.html;
+}
+
+server {
+  listen 80;
+  server_name weddings.mobilemeridian.lan;
+  return 301 https://mobilemeridian.lan/wedding-officiant.html;
+}
+
+server {
+  listen 443 ssl http2;
+  server_name courier.mobilemeridian.lan;
+
+  ssl_certificate     /etc/nginx/certs/lan.crt;
+  ssl_certificate_key /etc/nginx/certs/lan.key;
+
+  return 301 https://mobilemeridian.lan/medical-courier.html;
+}
+
+server {
+  listen 80;
+  server_name courier.mobilemeridian.lan;
+  return 301 https://mobilemeridian.lan/medical-courier.html;
+}

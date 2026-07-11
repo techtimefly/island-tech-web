@@ -1,0 +1,10 @@
+{
+  "name": "island-tech-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve:islandtech": "npx --yes serve sites/islandtech -l 4173",
+    "serve:mobilemeridian": "npx --yes serve sites/mobilemeridian -l 4174",
+    "check": "node scripts/check-static-sites.js"
+  }
+}

@@ -1,0 +1,63 @@
+server {
+  listen 80 default_server;
+  server_name islandtech.lan;
+  root /var/www/business-sites/islandtech;
+  index index.html;
+
+  location /health {
+    access_log off;
+    return 200 "business-web ok\n";
+    add_header Content-Type text/plain;
+  }
+
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+}
+
+server {
+  listen 80;
+  server_name mobilemeridian.lan mobilemeridianco.lan;
+  root /var/www/business-sites/mobilemeridian;
+  index index.html;
+
+  location /health {
+    access_log off;
+    return 200 "mobilemeridian ok\n";
+    add_header Content-Type text/plain;
+  }
+
+  location /notary {
+    return 301 /notary.html;
+  }
+
+  location /wedding-officiant {
+    return 301 /wedding-officiant.html;
+  }
+
+  location /medical-courier {
+    return 301 /medical-courier.html;
+  }
+
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+}
+
+server {
+  listen 80;
+  server_name notary.mobilemeridian.lan;
+  return 301 http://mobilemeridian.lan/notary.html;
+}
+
+server {
+  listen 80;
+  server_name weddings.mobilemeridian.lan;
+  return 301 http://mobilemeridian.lan/wedding-officiant.html;
+}
+
+server {
+  listen 80;
+  server_name courier.mobilemeridian.lan;
+  return 301 http://mobilemeridian.lan/medical-courier.html;
+}
